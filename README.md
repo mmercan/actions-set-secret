@@ -53,7 +53,7 @@ Response json payload
 ### For personal repo
 
 ```YAML
-uses: hmanzur/actions-set-secret@v2.0.0
+uses: mmercan/actions-set-secret@v/4.0.0
 with:
   name: 'MY_SECRET_NAME'
   value: 'Lorem ipsun dolor simit'
@@ -64,7 +64,7 @@ with:
 ### For organizations
 
 ```YAML
-uses: hmanzur/actions-set-secret@v2.0.0
+uses: mmercan/actions-set-secret@v/4.0.0
 with:
   name: 'MY_SECRET_NAME'
   value: 'Lorem ipsun dolor simit'
@@ -72,6 +72,18 @@ with:
   token: ${{ secrets.REPO_ACCESS_TOKEN }}
   org: true
   visibility: 'all'
+```
+
+### For environment
+
+```YAML
+uses: mmercan/actions-set-secret@v/4.0.0
+with:
+  name: 'MY_SECRET_NAME'
+  value: 'Lorem ipsun dolor simit'
+  repository: 'my-org'
+  token: ${{ secrets.REPO_ACCESS_TOKEN }}
+  environment: 'dev'
 ```
 
 ## References
