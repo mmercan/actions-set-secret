@@ -25,6 +25,10 @@ inputs:
   org:
     description: Indicate is an organization repo
     required: false
+    
+  environment:
+    description: environment name
+    required: false
 
   token:
     description: Repository access token
