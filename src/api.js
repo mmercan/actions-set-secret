@@ -73,6 +73,24 @@ module.exports = class Api {
   }
 
   /**
+   * Set secret on environment repository
+   *
+   * @param {{encrypted_value:string, key_id:string}} data - Object data to request
+   * @param {string} name - Secret name
+   * @param {string} environmentName - Environment Name
+   * @returns {Promise} - Fetch Response
+   */
+  async setEnvironmentSecret(data, environmentName, name) {
+    return this.octokit.request('PUT /:base/:repo/environments/:environmentName/secrets/:name', {
+      base: this._base,
+      repo: this._repo,
+      environmentName,
+      name,
+      data
+    })
+  }
+
+  /**
    * Organization checker
    *
    * @returns {boolean} - Is organization

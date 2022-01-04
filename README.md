@@ -32,6 +32,10 @@ Create or edit actions secrets in repository or organizations
 `String` that configures the access that repositories have to the organization secret.
 Options are `all`, `private`, `selected`
 
+### environment
+
+`String` set environment name if you want to store secret as an environment secret `github.repository` [context](https://docs.github.com/en/actions/reference/context-and-expression-syntax-for-github-actions#github-context)
+
 ### selected_repository_ids
 
 ### Outputs

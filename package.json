@@ -5,7 +5,8 @@
   "license": "MIT License",
   "scripts": {
     "lint": "eslint .",
-    "build": "ncc build index.js -o dist"
+    "build": "ncc build index.js -o dist",
+    "test": "jest"
   },
   "dependencies": {
     "@actions/core": "^1.2.6",
@@ -18,7 +19,8 @@
     "eslint-config-strongloop": "^2.1.0",
     "eslint-plugin-jsdoc": "^30.2.2",
     "husky": "^4.2.5",
-    "lint-staged": "^10.2.11"
+    "lint-staged": "^10.2.11",
+    "jest": "^27.2.5"
   },
   "husky": {
     "hooks": {
