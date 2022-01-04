@@ -28,10 +28,10 @@ const boostrap = async (api, secret_name, secret_value) => {
     }
     const environmentName = Core.getInput('environment')
     let response
-    if(environmentName) {
+    if (environmentName) {
       console.error(`environmentName: ${environmentName}`)
-      response = await api.setEnvironmentSecret(data, environmentName ,secret_name)
-    }else{
+      response = await api.setEnvironmentSecret(data, environmentName, secret_name)
+    } else {
       response = await api.setSecret(data, secret_name)
     }
 
