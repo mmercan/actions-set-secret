@@ -27,7 +27,7 @@ module.exports = class Api {
    */
   async getPublicKey(environmentName) {
     if (environmentName) {
-						let { data } = await this.octokit.request('GET /:base/:repo/environments/:environmentname/secrets/public-key', {
+						let { data } = await this.octokit.request('GET /:base/:repo/environments/:environmentName/secrets/public-key', {
 							base: this._base,
 							repo: this._repo,
 							environmentName
