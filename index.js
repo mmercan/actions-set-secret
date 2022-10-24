@@ -16,6 +16,7 @@ const boostrap = async (api, secret_name, secret_value) => {
 
   try {
 
+    const environmentName = Core.getInput('environment')
     if (environmentName) {
       const {key_id, key} = await api.getEnvironmentPublicKey(environmentName)
     } else {
@@ -31,7 +32,6 @@ const boostrap = async (api, secret_name, secret_value) => {
         data.selected_repository_ids = Core.getInput('selected_repository_ids')
       }
     }
-    const environmentName = Core.getInput('environment')
     let response
     if (environmentName) {
       console.error(`environmentName: ${environmentName}`)
