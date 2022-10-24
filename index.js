@@ -40,7 +40,7 @@ const boostrap = async (api, secret_name, secret_value) => {
         data.selected_repository_ids = Core.getInput('selected_repository_ids')
       }
     }
-    let response
+
     if (environmentName) {
       console.error(3)
       console.error(`environmentName: ${environmentName}`)
