@@ -22,7 +22,6 @@ jobs:
           node-version: ${{ secrets.NODE_VERSION }}
 
       - run: npm install
-      - run: npm run lint
 
   build:
     name: Build bundle
