@@ -1,6 +1,6 @@
-name: 'Set Action Environment Secret'
+name: 'Set Action Environment Secret - Working?'
 
-author: Habid Manzur
+author: Habid Manzur & Others
 
 description: 'Create or update secrets in github repository'
 
