@@ -17,11 +17,12 @@ const boostrap = async (api, secret_name, secret_value) => {
   try {
 
     const environmentName = Core.getInput('environment')
+    let response
     if (environmentName) {
       console.error(`environmentName: ${environmentName}`)
-      const response = await api.getPublicKey(environmentName)
+      response = await api.getPublicKey(environmentName)
     } else {
-      const response = await api.getPublicKey()
+      response = await api.getPublicKey()
     }
 
     console.error(require('util').inspect(response, {depth:null}))
@@ -30,7 +31,9 @@ const boostrap = async (api, secret_name, secret_value) => {
     const data = await api.createSecret(key_id, key, secret_name, secret_value)
     console.error(require('util').inspect(data, {depth:null}))
 
+    console.error(1)
     if (api.isOrg()) {
+      console.error(2)
       data.visibility = Core.getInput('visibility')
 
       if (data.visibility === 'selected') {
@@ -39,6 +42,7 @@ const boostrap = async (api, secret_name, secret_value) => {
     }
     let response
     if (environmentName) {
+      console.error(3)
       console.error(`environmentName: ${environmentName}`)
       response = await api.setEnvironmentSecret(data, environmentName, secret_name)
     } else {
