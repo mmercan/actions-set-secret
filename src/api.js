@@ -25,7 +25,7 @@ module.exports = class Api {
    *
    * @returns {Promise<{data: object}>} - Fetch response
    */
-  async getPublicKey(environmentName = ) {
+  async getPublicKey(environmentName = false) {
     if (environmentName) {
       let repo = await this.octokit.request('GET /repos/:repo', {
         repo: this._repo
