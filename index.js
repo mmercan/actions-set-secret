@@ -19,12 +19,16 @@ const boostrap = async (api, secret_name, secret_value) => {
     const environmentName = Core.getInput('environment')
     if (environmentName) {
       console.error(`environmentName: ${environmentName}`)
-      const {key_id, key} = await api.getPublicKey(environmentName)
+      const response = await api.getPublicKey(environmentName)
     } else {
-      const {key_id, key} = await api.getPublicKey()
+      const response = await api.getPublicKey()
     }
 
+    console.error(require('util').inspect(response, {depth:null}))
+    const key_id = response.key_id
+    const key = response.key
     const data = await api.createSecret(key_id, key, secret_name, secret_value)
+    console.error(require('util').inspect(data, {depth:null}))
 
     if (api.isOrg()) {
       data.visibility = Core.getInput('visibility')

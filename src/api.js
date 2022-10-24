@@ -25,20 +25,16 @@ module.exports = class Api {
    *
    * @returns {Promise<{data: object}>} - Fetch response
    */
-  async getPublicKey(environmentName) {
+  async getPublicKey(environmentName = ) {
     if (environmentName) {
       let repo = await this.octokit.request('GET /repos/:repo', {
         repo: this._repo
       })
-      
-      console.error(`response: ${require('util').inspect(repo, {depth:null})}`)
 
       let { data } = await this.octokit.request('GET /repositories/:repo_id/environments/:environmentName/secrets/public-key', {
         repo_id: repo.data.id,
         environmentName: environmentName
       })
-
-      console.error(`response: ${require('util').inspect(data, {depth:null})}`)
 
       return data
     }
