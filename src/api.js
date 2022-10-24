@@ -30,6 +30,13 @@ module.exports = class Api {
       base: this._base,
       repo: this._repo
     })
+    
+  async getEnvironmentPublicKey(environmentName) {
+    let { data } = await this.octokit.request('GET /:base/:repo/environments/:environmentname/secrets/public-key', {
+      base: this._base,
+      repo: this._repo,
+      environmentName
+    })
 
     return data
   }
@@ -99,3 +106,4 @@ module.exports = class Api {
     return this._org
   }
 }
+

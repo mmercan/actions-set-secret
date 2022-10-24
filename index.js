@@ -15,7 +15,12 @@ const Api = require('./src/api')
 const boostrap = async (api, secret_name, secret_value) => {
 
   try {
-    const {key_id, key} = await api.getPublicKey()
+
+    if (environmentName) {
+      const {key_id, key} = await api.getEnvironmentPublicKey(environmentName)
+    } else {
+      const {key_id, key} = await api.getPublicKey()
+    }
 
     const data = await api.createSecret(key_id, key, secret_name, secret_value)
 
