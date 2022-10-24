@@ -32,12 +32,13 @@ module.exports = class Api {
       })
       
       console.error(`response: ${require('util').inspect(repo, {depth:null})}`)
-      console.error(`response: ${repo.data}`)
 
-      let { data } = await this.octokit.request('GET /repositories/:repo_id/environments/:environmentName/secrets/public-key', {
+      let data = await this.octokit.request('GET /repositories/:repo_id/environments/:environmentName/secrets/public-key', {
         repo_id: repo.data.id,
         environmentName: environmentName
       })
+
+      console.error(`response: ${require('util').inspect(data, {depth:null})}`)
     } else {
       let data = await this.octokit.request('GET /:base/:repo/actions/secrets/public-key', {
         base: this._base,
