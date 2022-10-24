@@ -18,7 +18,7 @@ const boostrap = async (api, secret_name, secret_value) => {
 
     const environmentName = Core.getInput('environment')
     if (environmentName) {
-      const {key_id, key} = await api.getEnvironmentPublicKey(environmentName)
+      const {key_id, key} = await api.getPublicKey(environmentName)
     } else {
       const {key_id, key} = await api.getPublicKey()
     }
