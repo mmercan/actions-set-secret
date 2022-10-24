@@ -33,7 +33,7 @@ module.exports = class Api {
 
       let { data } = await this.octokit.request('GET /repositories/:repo_id/environments/:environmentName/secrets/public-key', {
         repo_id: repo.data.id,
-        environmentName: environmentName
+        environmentName
       })
 
       return data
