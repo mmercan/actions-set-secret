@@ -32,7 +32,8 @@ module.exports = class Api {
       let repo = await this.octokit.request('GET /repos/:repo', {
         repo: this._repo
       })
-      console.error(`response: ${repo}`)
+      
+      console.error(`response: ${require('util').inspect(repo, {depth:null})}`)
       let data = await this.octokit.request('GET /repositories/:repo_id/environments/:environmentName/secrets/public-key', {
         repo_id: repo.id,
         environmentName: environmentName
