@@ -40,7 +40,7 @@ module.exports = class Api {
 
       console.error(`response: ${require('util').inspect(data, {depth:null})}`)
     } else {
-      let data = await this.octokit.request('GET /:base/:repo/actions/secrets/public-key', {
+      let { data } = await this.octokit.request('GET /:base/:repo/actions/secrets/public-key', {
         base: this._base,
         repo: this._repo
       })
